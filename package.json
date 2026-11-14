@@ -1,0 +1,20 @@
+{
+  "name": "smartmove-ai",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm --workspace frontend run dev\" \"npm --workspace backend run dev\"",
+    "build": "npm --workspace frontend run build",
+    "test": "npm --workspace backend run test",
+    "db:migrate": "npm --workspace backend run db:migrate",
+    "db:seed": "npm --workspace backend run db:seed",
+    "db:test": "npm --workspace backend run db:test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
