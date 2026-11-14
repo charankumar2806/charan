@@ -9,6 +9,8 @@ import dashboardRoutes from './routes/dashboard.routes.js';
 import trafficRoutes from './routes/traffic.routes.js';
 import routeRoutes from './routes/route.routes.js';
 import fleetRoutes from './routes/fleet.routes.js';
+import transitRoutes from './routes/transit.routes.js';
+import emissionRoutes from './routes/emission.routes.js';
 import { errorHandler } from './middleware/error.middleware.js';
 
 dotenv.config();
@@ -44,6 +46,8 @@ app.use('/api/v1/dashboard', dashboardRoutes);
 app.use('/api/v1/traffic', trafficRoutes);
 app.use('/api/v1/routes', routeRoutes);
 app.use('/api/v1/fleet', fleetRoutes);
+app.use('/api/v1/transit', transitRoutes);
+app.use('/api/v1/emissions', emissionRoutes);
 
 app.use(errorHandler);
 

@@ -20,6 +20,12 @@ export const routeSchema = z.object({
   preference: z.string()
 });
 
+export const emissionSchema = z.object({
+  distanceKm: z.number().positive(),
+  fuelType: z.enum(['petrol', 'diesel', 'electric', 'hybrid']),
+  vehicleType: z.enum(['car', 'bus', 'bicycle'])
+});
+
 export const incidentSchema = z.object({
   title: z.string().min(2),
   description: z.string().min(2),

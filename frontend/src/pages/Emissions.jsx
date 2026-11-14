@@ -3,15 +3,21 @@ import { getEmissionSummary } from '../services/emission.service';
 
 export default function Emissions() {
   const [summary, setSummary] = useState(null);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await getEmissionSummary();
-      setSummary(data);
+      try {
+        const { data } = await getEmissionSummary();
+        setSummary(data);
+      } catch (requestError) {
+        setError(requestError.response?.data?.error || 'Unable to load emissions analytics.');
+      }
     };
     fetchData();
   }, []);
 
+  if (error) return <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-4 text-red-200">{error}</div>;
   if (!summary) return <div className="text-slate-200">Loading emissions analytics…</div>;
 
   return (

@@ -12,7 +12,7 @@ export const calculateEmissions = ({ distanceKm = 10, fuelType = 'petrol', vehic
   return {
     totalKg,
     perKm: Number((totalKg / Math.max(distanceKm, 1)).toFixed(2)),
-    savings: vehicleType === 'electric' ? 26 : 12,
+    savings: fuelType === 'electric' ? 26 : 12,
     assumptions: [
       'Emission estimates are calculated using configurable heuristic factors for vehicle type and fuel type.',
       'These figures are operational estimates rather than laboratory-grade measurements.',
